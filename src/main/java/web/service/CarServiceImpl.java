@@ -10,13 +10,20 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
 
     private List<Car> cars;
-    private static int counter;
+
+
+    {
+        cars = new ArrayList<>();
+        cars.add(new Car("bmw", 11, 1));
+        cars.add(new Car("mersedes", 12, 2));
+        cars.add(new Car("audi", 13, 3));
+        cars.add(new Car("Reno", 14, 4));
+        cars.add(new Car("Autovaz", 15, 5));
+    }
 
 
     @Override
     public List<Car> getCars(Integer count) {
-        System.out.println(counter);
-        System.out.println(count);
         List<Car> res = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             res.add(cars.get(i));
@@ -29,12 +36,5 @@ public class CarServiceImpl implements CarService {
         return cars;
     }
 
-    {
-        cars = new ArrayList<>();
-        cars.add(new Car("bmw", 11, ++counter));
-        cars.add(new Car("mersedes", 12, ++counter));
-        cars.add(new Car("audi", 13, ++counter));
-        cars.add(new Car("Reno", 14, ++counter));
-        cars.add(new Car("Autovaz", 15, ++counter));
-    }
+
 }
